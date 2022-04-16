@@ -1,3 +1,5 @@
+import { StorageItems } from '@mobile/enum/storage';
+import StorageService from '@mobile/services/storage';
 import Axios, { AxiosError, AxiosResponse } from 'axios';
 
 export enum AxiosStatus {
@@ -14,8 +16,7 @@ const handler: IHandler = {
 };
 
 export const getInstance = async () => {
-  const accessToken = '';
-  // Method to get accessToken
+  const accessToken = await StorageService.getItem(StorageItems.ACCESS_TOKEN);
 
   const axiosInstance = Axios.create({
     baseURL: 'yourapi.com',
@@ -24,7 +25,7 @@ export const getInstance = async () => {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${accessToken}`,
     },
-  });
+  })
 
   axiosInstance.interceptors.response.use(
     (response: AxiosResponse) => response,
