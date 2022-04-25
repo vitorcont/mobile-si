@@ -3,7 +3,6 @@ import { AUTH_LOGIN, AUTH_LOGGED } from '../actionsType';
 export const initialState: reducers.AuthState = {
   authenticated: {
     accessToken: null,
-    refreshToken: null,
   },
   logged: false,
 };

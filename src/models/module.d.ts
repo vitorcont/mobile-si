@@ -26,7 +26,6 @@ export type CreateUser = {
 export interface LoginRequest {
   email: string;
   password: string;
-  grantType?: string;
 }
 
 export interface LoginResponse {

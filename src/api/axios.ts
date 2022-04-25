@@ -12,20 +12,21 @@ interface IHandler {
 }
 
 const handler: IHandler = {
-  unauthorizedError: () => { },
+  unauthorizedError: () => {},
 };
 
 export const getInstance = async () => {
-  const accessToken = await StorageService.getItem(StorageItems.ACCESS_TOKEN);
-
+  console.log('bb');
+  // const accessToken = await StorageService.getItem(StorageItems.ACCESS_TOKEN);
+  console.log('aa');
   const axiosInstance = Axios.create({
-    baseURL: 'yourapi.com',
+    baseURL: 'https://4814-2804-7f0-b380-52ef-14e-bba5-867f-e38b.ngrok.io',
     timeout: 10000,
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${accessToken}`,
+      // Authorization: `Bearer ${accessToken}`,
     },
-  })
+  });
 
   axiosInstance.interceptors.response.use(
     (response: AxiosResponse) => response,
@@ -37,7 +38,7 @@ export const getInstance = async () => {
       }
 
       return Promise.reject();
-    },
+    }
   );
 
   return axiosInstance;

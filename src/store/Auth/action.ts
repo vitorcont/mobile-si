@@ -7,26 +7,34 @@ import navigationService from '@mobile/services/navigation';
 import { AUTH_LOGGED, AUTH_LOGIN, LOGOUT } from '../actionsType';
 import { startLoading, stopLoading } from '../Loading/action';
 import { StorageItems } from '@mobile/enum/storage';
+import Toaster from '@mobile/services/toaster';
 
-export const authenticate =
-  (userData: models.LoginRequest) => async (dispatch: Dispatch) => {
-    dispatch(startLoading());
-    try {
-      const payload: models.LoginResponse = await AuthAPI.login(userData);
-      if (payload) {
-        dispatch({ type: AUTH_LOGIN, payload });
-      }
-      StorageService.setItem(StorageItems.ACCESS_TOKEN, payload.token);
-      navigationService.reset({
-        index: 0,
-        routes: [{ name: 'Content' }],
+export const authenticate = (userData: models.LoginRequest) => async (dispatch: Dispatch) => {
+  dispatch(startLoading());
+  try {
+    console.log('a');
+    const payload: models.LoginResponse = await AuthAPI.login(userData);
+    console.log('payload', payload);
+    if (payload) {
+      dispatch({
+        type: AUTH_LOGIN,
+        payload: {
+          token: payload.token,
+        },
       });
-    } catch (err) {
-      ///handleError
-    } finally {
-      dispatch(stopLoading());
     }
-  };
+    StorageService.setItem(StorageItems.ACCESS_TOKEN, payload.token);
+    navigationService.reset({
+      index: 0,
+      routes: [{ name: 'Content' }],
+    });
+  } catch (err) {
+    console.log(err);
+    Toaster.error('Erro', 'Dados de Login inválidos');
+  } finally {
+    dispatch(stopLoading());
+  }
+};
 
 export const recovery = (email: string) => async (dispatch: Dispatch) => {
   dispatch(startLoading());

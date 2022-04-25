@@ -3,7 +3,7 @@ import getInstance from '@mobile/api/axios';
 const AuthAPI = {
   login: async (userData: models.LoginRequest) => {
     const instance = await getInstance();
-    const { data } = await instance.post('/authEndpoint', userData);
+    const { data } = await instance.post('/auth', userData);
 
     return data as models.LoginResponse;
   },

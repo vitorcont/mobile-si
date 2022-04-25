@@ -5,7 +5,7 @@ const options: RNSInfo.RNSensitiveInfoOptions = {};
 
 const StorageService = {
   getItem: async (key: StorageItems) => {
-    RNSInfo.getItem(key, options);
+    return await RNSInfo.getItem(key, options);
   },
   setItem: async (key: StorageItems, value: any) => {
     await RNSInfo.setItem(key, value, options);
@@ -13,6 +13,6 @@ const StorageService = {
   removeItem: async (key: StorageItems) => {
     await RNSInfo.deleteItem(key, options);
   },
-}
+};
 
 export default StorageService;
