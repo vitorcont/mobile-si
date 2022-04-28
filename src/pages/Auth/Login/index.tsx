@@ -2,6 +2,7 @@ import AdvancedTextInput from '@mobile/components/AdvancedTextInput';
 import Button from '@mobile/components/Button';
 import { theme } from '@mobile/global/styles/theme';
 import { useReduxState } from '@mobile/hooks/useReduxState';
+import navigationService from '@mobile/services/navigation';
 import { authenticate } from '@mobile/store/Auth/action';
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
@@ -29,8 +30,9 @@ const Login = () => {
           color: theme.colors.primary,
           marginBottom: 20,
         }}>
-        GRAPHIA<Text style={{ color: '#000' }}>Cidade</Text>
+        GRAFIA<Text style={{ color: '#000' }}>Cidade</Text>
       </Text>
+
       <View style={{ width: '80%', marginBottom: 20 }}>
         <AdvancedTextInput
           placeholder="E-mail"
@@ -46,15 +48,27 @@ const Login = () => {
           value={form.password}
           onChange={(value) => setForm({ ...form, password: value })}
         />
+
         <Text style={{ marginTop: 5, marginBottom: 10, fontFamily: theme.fonts.Regular }}>
           Esqueceu a{' '}
-          <Text style={{ color: theme.colors.primary, fontFamily: theme.fonts.Regular }}>
+          <Text
+            onPress={() => navigationService.navigate('RecoverPassword')}
+            style={{ color: theme.colors.primary, fontFamily: theme.fonts.Regular }}>
             senha
           </Text>
           ?
         </Text>
       </View>
+
       <Button label="Entrar" onPress={onSubmit} loading={loading > 0} />
+      <Text style={{ marginTop: 15, marginBottom: 10, fontFamily: theme.fonts.Regular }}>
+        Não tem conta?{' '}
+        <Text
+          onPress={() => navigationService.navigate('SignUp')}
+          style={{ color: theme.colors.primary, fontFamily: theme.fonts.Regular }}>
+          Cadastre-se
+        </Text>
+      </Text>
     </View>
   );
 };
