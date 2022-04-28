@@ -16,15 +16,14 @@ const handler: IHandler = {
 };
 
 export const getInstance = async () => {
-  console.log('bb');
-  // const accessToken = await StorageService.getItem(StorageItems.ACCESS_TOKEN);
-  console.log('aa');
+  const accessToken = await StorageService.getItem(StorageItems.ACCESS_TOKEN);
+
   const axiosInstance = Axios.create({
-    baseURL: 'https://4814-2804-7f0-b380-52ef-14e-bba5-867f-e38b.ngrok.io',
+    baseURL: 'https://8741-187-26-167-13.ngrok.io',
     timeout: 10000,
     headers: {
-      'Content-Type': 'application/json',
-      // Authorization: `Bearer ${accessToken}`,
+      'content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
     },
   });
 

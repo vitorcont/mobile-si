@@ -12,9 +12,7 @@ import Toaster from '@mobile/services/toaster';
 export const authenticate = (userData: models.LoginRequest) => async (dispatch: Dispatch) => {
   dispatch(startLoading());
   try {
-    console.log('a');
     const payload: models.LoginResponse = await AuthAPI.login(userData);
-    console.log('payload', payload);
     if (payload) {
       dispatch({
         type: AUTH_LOGIN,

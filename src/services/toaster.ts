@@ -14,7 +14,7 @@ const Toaster = {
       icon: {
         icon: 'success',
         position: 'left',
-        props: {}
+        props: {},
       },
     }),
 
@@ -30,7 +30,7 @@ const Toaster = {
       icon: {
         icon: 'danger',
         position: 'left',
-        props: {}
+        props: {},
       },
     }),
 
@@ -46,7 +46,7 @@ const Toaster = {
       icon: {
         icon: 'warning',
         position: 'left',
-        props: {}
+        props: {},
       },
     }),
 
@@ -61,7 +61,7 @@ const Toaster = {
       icon: {
         icon: 'info',
         position: 'left',
-        props: {}
+        props: {},
       },
     }),
 };

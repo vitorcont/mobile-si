@@ -3,17 +3,17 @@ import React, { PureComponent } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { navigationRef } from '@mobile/services/navigation';
 import Navigator from '@mobile/stack';
+import FlashMessage from 'react-native-flash-message';
 
 const AppContent = () => {
   return (
     <SafeAreaProvider>
-      <NavigationContainer
-        ref={navigationRef}
-      >
+      <FlashMessage position="top" />
+      <NavigationContainer ref={navigationRef}>
         <Navigator />
       </NavigationContainer>
     </SafeAreaProvider>
   );
-}
+};
 
 export default AppContent;
