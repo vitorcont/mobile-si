@@ -1,3 +1,4 @@
+import { theme } from '@mobile/global/styles/theme';
 import React, { useEffect, useRef, useState } from 'react';
 import { TouchableOpacity, Text, Animated, Image, ActivityIndicator } from 'react-native';
 
@@ -37,7 +38,7 @@ const Button = ({ loading, onPress, label }: IButtonProps) => {
           width: '100%',
           height: '100%',
           borderRadius: loading ? 120 : 40,
-          backgroundColor: '#00c040',
+          backgroundColor: theme.colors.primary,
           alignItems: 'center',
           justifyContent: 'center',
         }}>
@@ -48,6 +49,7 @@ const Button = ({ loading, onPress, label }: IButtonProps) => {
             style={{
               fontSize: 24,
               color: 'white',
+              fontFamily: theme.fonts.Regular,
             }}>
             {label}
           </Text>

@@ -1,3 +1,4 @@
+import { theme } from '@mobile/global/styles/theme';
 import React from 'react';
 import { View, Text, TextInput, KeyboardType, ViewStyle } from 'react-native';
 
@@ -12,6 +13,7 @@ interface TextIProps {
   maxLength?: number;
   disabled?: boolean;
   multiline?: boolean;
+  secureTextEntry?: boolean;
   style?: ViewStyle;
 }
 
@@ -26,25 +28,28 @@ const AdvancedTextInput = ({
   keyboardType,
   multiline,
   style,
+  secureTextEntry,
 }: TextIProps) => {
   return (
     <View
       style={[
         {
           backgroundColor: '#eeeeee',
-          borderRadius: 10,
+          borderRadius: 16,
           borderColor: '#dddddd',
           borderWidth: 1.5,
           paddingVertical: 8,
-          paddingHorizontal: 10,
+          paddingHorizontal: 14,
           width: '100%',
+          height: 60,
           justifyContent: 'center',
         },
         style,
       ]}>
       <TextInput
         style={{
-          fontSize: 16,
+          fontSize: 20,
+          fontFamily: theme.fonts.Regular,
         }}
         value={value}
         placeholder={placeholder}
@@ -55,6 +60,7 @@ const AdvancedTextInput = ({
         onBlur={onBlur}
         onFocus={onFocus}
         multiline={multiline}
+        secureTextEntry={secureTextEntry}
       />
     </View>
   );
