@@ -2,20 +2,22 @@ import AdvancedTextInput from '@mobile/components/AdvancedTextInput';
 import Button from '@mobile/components/Button';
 import { theme } from '@mobile/global/styles/theme';
 import { useReduxState } from '@mobile/hooks/useReduxState';
-import { authenticate } from '@mobile/store/Auth/action';
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import navigationService from '@mobile/services/navigation';
+import { createUser } from '@mobile/store/User/action';
+import { ProfileType } from '@mobile/enum/profile';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const SignUp = () => {
   const { loading } = useReduxState();
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [form, setForm] = useState({ name: '', email: '', password: '' });
   const dispatch = useDispatch();
   const onSubmit = () => {
-    dispatch(authenticate(form));
+    dispatch(createUser({ ...form, profileType: ProfileType.DEFAULT }));
   };
 
   return (
@@ -46,14 +48,17 @@ const SignUp = () => {
           GRAFIA<Text style={{ color: '#000' }}>Cidade</Text>
         </Text>
 
-        <View style={{ width: '80%', marginBottom: 20 }}>
+        <View style={{ width: '80%', marginBottom: 40, marginTop: 60 }}>
           <AdvancedTextInput
             placeholder="Nome"
-            value={form.email}
-            onChange={(value) => setForm({ ...form, email: value })}
+            value={form.name}
+            onChange={(value) => setForm({ ...form, name: value })}
           />
           <AdvancedTextInput
             placeholder="E-mail"
+            style={{
+              marginTop: 20,
+            }}
             value={form.email}
             onChange={(value) => setForm({ ...form, email: value })}
           />
@@ -68,7 +73,7 @@ const SignUp = () => {
           />
         </View>
 
-        <Button label="Enviar" onPress={onSubmit} loading={loading > 0} />
+        <Button label="Cadastro" onPress={onSubmit} loading={loading > 0} />
       </View>
     </>
   );

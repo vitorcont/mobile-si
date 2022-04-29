@@ -9,13 +9,7 @@ const AuthAPI = {
   },
   recovery: async (email: string) => {
     const instance = await getInstance();
-    await instance.post('/authEnpoint', { email });
-  },
-  refresh: async () => {
-    const instance = await getInstance();
-    const { data } = await instance.post('/authEndpoint');
-
-    return data;
+    await instance.post('/auth/recovery', { email });
   },
 };
 

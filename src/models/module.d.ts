@@ -42,3 +42,10 @@ export interface Pagination {
   offset?: number;
   limit?: number;
 }
+
+export interface UserCreation {
+  name?: string;
+  password?: string;
+  email?: string;
+  profileType?: number;
+}

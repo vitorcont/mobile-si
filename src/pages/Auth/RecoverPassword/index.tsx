@@ -2,7 +2,7 @@ import AdvancedTextInput from '@mobile/components/AdvancedTextInput';
 import Button from '@mobile/components/Button';
 import { theme } from '@mobile/global/styles/theme';
 import { useReduxState } from '@mobile/hooks/useReduxState';
-import { authenticate } from '@mobile/store/Auth/action';
+import { authenticate, recovery } from '@mobile/store/Auth/action';
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
@@ -12,10 +12,10 @@ import navigationService from '@mobile/services/navigation';
 
 const RecoverPassword = () => {
   const { loading } = useReduxState();
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [form, setForm] = useState({ email: '' });
   const dispatch = useDispatch();
   const onSubmit = () => {
-    dispatch(authenticate(form));
+    dispatch(recovery(form.email));
   };
 
   return (
@@ -53,6 +53,7 @@ const RecoverPassword = () => {
           <AdvancedTextInput
             placeholder="E-mail"
             value={form.email}
+            keyboardType="email-address"
             onChange={(value) => setForm({ ...form, email: value })}
           />
         </View>

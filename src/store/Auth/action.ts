@@ -38,8 +38,12 @@ export const recovery = (email: string) => async (dispatch: Dispatch) => {
   dispatch(startLoading());
   try {
     await AuthAPI.recovery(email);
+    Toaster.success('Sucesso', 'E-mail enviado com sucesso! Verifique sua caixa de entrada.');
   } catch (err) {
-    //handleError
+    Toaster.error(
+      'Erro',
+      'Esse usuario não foi encontrado, verifique seus dados e tente novamente.'
+    );
   } finally {
     dispatch(stopLoading());
   }

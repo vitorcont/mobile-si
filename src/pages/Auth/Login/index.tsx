@@ -4,6 +4,7 @@ import { theme } from '@mobile/global/styles/theme';
 import { useReduxState } from '@mobile/hooks/useReduxState';
 import navigationService from '@mobile/services/navigation';
 import { authenticate } from '@mobile/store/Auth/action';
+import { LinearGradient } from 'expo-linear-gradient';
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
@@ -23,12 +24,17 @@ const Login = () => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
+      <LinearGradient
+        colors={[theme.colors.primary, 'transparent']}
+        style={{ left: 0, right: 0, top: 0, bottom: 0, position: 'absolute' }}
+        locations={[0.2, 0.6]}
+      />
       <Text
         style={{
           fontFamily: theme.fonts.Bold,
           fontSize: 32,
-          color: theme.colors.primary,
-          marginBottom: 20,
+          color: '#FFF',
+          marginBottom: 80,
         }}>
         GRAFIA<Text style={{ color: '#000' }}>Cidade</Text>
       </Text>

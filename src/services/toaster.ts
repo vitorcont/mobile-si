@@ -10,7 +10,7 @@ const Toaster = {
       backgroundColor: 'green',
       color: 'white',
       hideOnPress: true,
-      statusBarHeight: Window.heightScale(0.04),
+      statusBarHeight: Window.heightScale(0.06),
       icon: {
         icon: 'success',
         position: 'left',
@@ -26,7 +26,7 @@ const Toaster = {
       backgroundColor: 'red',
       color: 'white',
       hideOnPress: true,
-      statusBarHeight: Window.heightScale(0.04),
+      statusBarHeight: Window.heightScale(0.06),
       icon: {
         icon: 'danger',
         position: 'left',
@@ -42,7 +42,7 @@ const Toaster = {
       backgroundColor: 'orange',
       color: 'white',
       hideOnPress: true,
-      statusBarHeight: Window.heightScale(0.04),
+      statusBarHeight: Window.heightScale(0.06),
       icon: {
         icon: 'warning',
         position: 'left',
@@ -57,7 +57,7 @@ const Toaster = {
       type: 'info',
       color: 'white',
       hideOnPress: true,
-      statusBarHeight: Window.heightScale(0.04),
+      statusBarHeight: Window.heightScale(0.06),
       icon: {
         icon: 'info',
         position: 'left',
