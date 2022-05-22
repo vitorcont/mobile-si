@@ -1,16 +1,15 @@
+import { AntDesign } from '@expo/vector-icons';
 import AdvancedTextInput from '@mobile/components/AdvancedTextInput';
 import Button from '@mobile/components/Button';
+import { ProfileType } from '@mobile/enum/profile';
 import { theme } from '@mobile/global/styles/theme';
 import { useReduxState } from '@mobile/hooks/useReduxState';
-import React, { useState } from 'react';
-import { View, Text } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { AntDesign } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import navigationService from '@mobile/services/navigation';
 import { createUser } from '@mobile/store/User/action';
-import { ProfileType } from '@mobile/enum/profile';
-import { LinearGradient } from 'expo-linear-gradient';
+import React, { useState } from 'react';
+import { Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useDispatch } from 'react-redux';
 
 const SignUp = () => {
   const { loading } = useReduxState();
@@ -73,7 +72,7 @@ const SignUp = () => {
           />
         </View>
 
-        <Button label="Cadastro" onPress={onSubmit} loading={loading > 0} />
+        <Button label="Cadastrar" onPress={onSubmit} loading={loading > 0} />
       </View>
     </>
   );

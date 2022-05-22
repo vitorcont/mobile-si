@@ -1,6 +1,6 @@
 import { theme } from '@mobile/global/styles/theme';
 import React from 'react';
-import { View, Text, TextInput, KeyboardType, ViewStyle } from 'react-native';
+import { KeyboardType, TextInput, View, ViewStyle } from 'react-native';
 
 interface TextIProps {
   value: string;

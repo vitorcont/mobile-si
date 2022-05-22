@@ -1,11 +1,11 @@
 import { theme } from '@mobile/global/styles/theme';
-import React, { useEffect, useRef, useState } from 'react';
-import { TouchableOpacity, Text, Animated, Image, ActivityIndicator } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { ActivityIndicator, Animated, Text, TouchableOpacity } from 'react-native';
 
 interface IButtonProps {
   loading?: boolean;
   onPress?: () => void;
-  label?: string;
+  label: string;
 }
 
 const Button = ({ loading, onPress, label }: IButtonProps) => {
@@ -14,7 +14,7 @@ const Button = ({ loading, onPress, label }: IButtonProps) => {
   useEffect(() => {
     const fade = () => {
       Animated.timing(value, {
-        toValue: loading ? 60 : 150,
+        toValue: loading ? 60 : 200,
         duration: 300,
         useNativeDriver: false,
       }).start();
@@ -28,7 +28,7 @@ const Button = ({ loading, onPress, label }: IButtonProps) => {
       style={{
         width: value,
         height: 60,
-        borderRadius: loading ? 120 : 40,
+        borderRadius: loading ? 120 : 20,
         justifyContent: 'center',
       }}>
       <TouchableOpacity
@@ -37,7 +37,7 @@ const Button = ({ loading, onPress, label }: IButtonProps) => {
         style={{
           width: '100%',
           height: '100%',
-          borderRadius: loading ? 120 : 40,
+          borderRadius: loading ? 120 : 20,
           backgroundColor: theme.colors.primary,
           alignItems: 'center',
           justifyContent: 'center',

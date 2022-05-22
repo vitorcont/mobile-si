@@ -1,7 +1,5 @@
-import React from 'react';
-
 import { createStack } from '@mobile/services/navigation';
-
+import React from 'react';
 import Login from './Login';
 import RecoverPassword from './RecoverPassword';
 import SignUp from './SignUp';

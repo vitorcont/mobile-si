@@ -6,13 +6,14 @@ import navigationService from '@mobile/services/navigation';
 import { authenticate } from '@mobile/store/Auth/action';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 const Login = () => {
   const { loading } = useReduxState();
   const [form, setForm] = useState({ email: '', password: '' });
   const dispatch = useDispatch();
+
   const onSubmit = () => {
     dispatch(authenticate(form));
   };
@@ -39,12 +40,13 @@ const Login = () => {
         GRAFIA<Text style={{ color: '#000' }}>Cidade</Text>
       </Text>
 
-      <View style={{ width: '80%', marginBottom: 20 }}>
+      <View style={{ width: '90%', marginBottom: 20 }}>
         <AdvancedTextInput
           placeholder="E-mail"
           value={form.email}
           onChange={(value) => setForm({ ...form, email: value })}
         />
+
         <AdvancedTextInput
           style={{
             marginTop: 20,
@@ -67,6 +69,7 @@ const Login = () => {
       </View>
 
       <Button label="Entrar" onPress={onSubmit} loading={loading > 0} />
+
       <Text style={{ marginTop: 15, marginBottom: 10, fontFamily: theme.fonts.Regular }}>
         Não tem conta?{' '}
         <Text

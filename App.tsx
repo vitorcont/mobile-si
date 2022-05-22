@@ -1,11 +1,11 @@
-import AppContent from '@mobile/AppContent';
+import { Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
+import { CreateReport } from '@mobile/pages/Content/CreateReport';
 import store from '@mobile/store';
+import AppLoading from 'expo-app-loading';
+import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
-import { useFonts } from 'expo-font';
-import AppLoading from 'expo-app-loading';
 
 const App = () => {
   let [fontsloaded] = useFonts({
@@ -18,7 +18,8 @@ const App = () => {
   return (
     <Provider store={store}>
       <StatusBar style="light" />
-      <AppContent />
+      {/* <AppContent /> */}
+      <CreateReport />
     </Provider>
   );
 };
