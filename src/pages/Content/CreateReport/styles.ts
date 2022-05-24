@@ -29,4 +29,17 @@ export const styles = StyleSheet.create({
   disabledColor: {
     backgroundColor: '#E4E4E4',
   },
+
+  changePhoto: {
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 20,
+
+    top: 200,
+    width: '80%',
+    height: '30%',
+    borderRadius: 32,
+    backgroundColor: '#FAFAFA',
+  },
 });
