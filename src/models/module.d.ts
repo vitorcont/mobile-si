@@ -49,3 +49,16 @@ export interface UserCreation {
   email?: string;
   profileType?: number;
 }
+
+export interface ReportProps {
+  id: string;
+  userId: string;
+  title: string;
+  description: string;
+  typeId: string;
+  subTypes: string;
+  image: string;
+  audio: string;
+  latitude: string;
+  longitude: string;
+}

@@ -29,7 +29,7 @@ export function Option({ name, disabled = false, bold = false, ...rest }: Option
       <TouchableOpacity {...rest} disabled={disabled}>
         <Text style={style}>{name}</Text>
       </TouchableOpacity>
-      {bold && name !== 'Cancelar' ? <View style={styles.divider} /> : []}
+      {name !== 'Cancelar' ? <View style={styles.divider} /> : []}
     </>
   );
 }

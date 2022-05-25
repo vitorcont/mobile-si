@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
   formContainer: {
     marginTop: '15%',
     width: '90%',
-    marginBottom: '15%',
+    marginBottom: '10%',
   },
 
   roundButton: {
@@ -28,6 +28,15 @@ export const styles = StyleSheet.create({
 
   disabledColor: {
     backgroundColor: '#E4E4E4',
+    width: 150,
+    height: 60,
+    borderRadius: 30,
+    alignItems: 'center',
+    marginTop: 20,
+    borderWidth: 1.5,
+    borderColor: '#dddddd',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
   },
 
   changePhoto: {
@@ -36,10 +45,17 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 20,
 
-    top: 200,
-    width: '80%',
-    height: '30%',
-    borderRadius: 32,
+    top: '25%',
+    width: '70%',
+    height: '25%',
+    borderRadius: 16,
     backgroundColor: '#FAFAFA',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 3,
+      height: 3,
+    },
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
   },
 });
