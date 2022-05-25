@@ -51,7 +51,7 @@ export interface UserCreation {
 }
 
 export interface ReportProps {
-  id: string;
+  id?: string;
   userId: string;
   title: string;
   description: string;

@@ -61,6 +61,7 @@ const AdvancedTextInput = ({
         onFocus={onFocus}
         multiline={multiline}
         secureTextEntry={secureTextEntry}
+        blurOnSubmit
       />
     </View>
   );
