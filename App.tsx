@@ -1,4 +1,5 @@
 import { Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
+import AppContent from '@mobile/AppContent';
 import { CreateReport } from '@mobile/pages/Content/CreateReport';
 import store from '@mobile/store';
 import AppLoading from 'expo-app-loading';
@@ -17,9 +18,8 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <StatusBar style="light" />
-      {/* <AppContent /> */}
-      <CreateReport />
+      {/* <StatusBar style="light" /> */}
+      <AppContent />
     </Provider>
   );
 };

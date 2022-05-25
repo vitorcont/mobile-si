@@ -6,9 +6,10 @@ interface IButtonProps {
   loading?: boolean;
   onPress?: () => void;
   label: string;
+  animated?: boolean;
 }
 
-const Button = ({ loading, onPress, label }: IButtonProps) => {
+const Button = ({ loading, onPress, label, animated = true }: IButtonProps) => {
   const value = useRef(new Animated.Value(100)).current;
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const Button = ({ loading, onPress, label }: IButtonProps) => {
   return (
     <Animated.View
       style={{
-        width: value,
+        ...(animated && { width: value }),
         height: 60,
         borderRadius: loading ? 120 : 20,
         justifyContent: 'center',

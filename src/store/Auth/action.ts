@@ -13,6 +13,7 @@ export const authenticate = (userData: models.LoginRequest) => async (dispatch: 
   dispatch(startLoading());
   try {
     const payload: models.LoginResponse = await AuthAPI.login(userData);
+    Promise.resolve(await StorageService.setItem(StorageItems.ACCESS_TOKEN, payload.token));
     if (payload) {
       dispatch({
         type: AUTH_LOGIN,
@@ -21,7 +22,6 @@ export const authenticate = (userData: models.LoginRequest) => async (dispatch: 
         },
       });
     }
-    StorageService.setItem(StorageItems.ACCESS_TOKEN, payload.token);
     navigationService.reset({
       index: 0,
       routes: [{ name: 'Content' }],
@@ -67,8 +67,8 @@ export const refreshToken = () => async (dispatch: Dispatch) => {
 export const logout = () => async (dispatch: Dispatch) => {
   navigationService.reset({
     index: 0,
-    routes: [{ name: 'Start' }],
+    routes: [{ name: 'Auth' }],
   });
-  StorageService.removeItem(StorageItems.ACCESS_TOKEN);
+  await StorageService.removeItem(StorageItems.ACCESS_TOKEN);
   dispatch({ type: LOGOUT });
 };

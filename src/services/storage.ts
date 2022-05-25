@@ -1,17 +1,15 @@
-import RNSInfo from 'react-native-sensitive-info';
 import { StorageItems } from '@mobile/enum/storage';
-
-const options: RNSInfo.RNSensitiveInfoOptions = {};
+import * as SecureStore from 'expo-secure-store';
 
 const StorageService = {
   getItem: async (key: StorageItems) => {
-    return await RNSInfo.getItem(key, options);
+    return await SecureStore.getItemAsync(key);
   },
   setItem: async (key: StorageItems, value: any) => {
-    await RNSInfo.setItem(key, value, options);
+    await SecureStore.setItemAsync(key, value);
   },
   removeItem: async (key: StorageItems) => {
-    await RNSInfo.deleteItem(key, options);
+    await SecureStore.deleteItemAsync(key);
   },
 };
 
