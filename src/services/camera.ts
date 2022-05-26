@@ -17,7 +17,7 @@ export async function onTakePhoto({ report, setReport, setVisible }: CameraServi
 
   if (granted) {
     const result = await ImagePicker.launchCameraAsync({
-      allowsEditing: true,
+      allowsEditing: false,
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       base64: true,
     });
@@ -36,7 +36,7 @@ export async function onChooseFromGallery({ report, setReport, setVisible }: Cam
 
   if (granted) {
     const result = await ImagePicker.launchImageLibraryAsync({
-      allowsEditing: true,
+      allowsEditing: false,
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       base64: true,
     });
