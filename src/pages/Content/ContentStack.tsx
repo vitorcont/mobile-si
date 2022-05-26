@@ -1,6 +1,6 @@
 import { createStack, createBottomTab } from '@mobile/services/navigation';
 import React from 'react';
-import { CreateReport } from './CreateReport';
+import { CreateReport } from './Home/CreateReport';
 import { MaterialIcons, Entypo, FontAwesome5 } from '@expo/vector-icons';
 
 import { tabBarOptions } from './Content.style';

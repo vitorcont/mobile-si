@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   },
 
   formContainer: {
-    marginTop: '15%',
+    marginTop: '5%',
     width: '90%',
     marginBottom: '10%',
   },

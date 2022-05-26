@@ -1,10 +1,12 @@
+import { FontAwesome } from '@expo/vector-icons';
+import navigationService from '@mobile/services/navigation';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 
 interface HeaderProps {
   title: string;
-  variant: 'default' | 'home';
+  variant: 'default' | 'home' | 'report';
 }
 
 export function Header({ title, variant = 'default' }: HeaderProps) {
@@ -22,6 +24,18 @@ export function Header({ title, variant = 'default' }: HeaderProps) {
             Seja bem vindo so seu portal de ocorrências, aqui você poderá relatar e vizualizar os
             problemas de sua região.
           </Text>
+        </View>
+      )}
+      {variant === 'report' && (
+        <View style={styles.reportContainer}>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={{ paddingRight: 20 }}
+            onPress={() => navigationService.back()}>
+            <FontAwesome name="arrow-left" size={24} color="white" />
+          </TouchableOpacity>
+
+          <Text style={styles.reportHeader}>{title}</Text>
         </View>
       )}
     </>

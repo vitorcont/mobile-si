@@ -6,3 +6,5 @@ export const USER_ME = 'USER_ME';
 export const AUTH_LOGIN = 'AUTH_LOGIN';
 export const AUTH_LOGGED = 'AUTH_LOGGED';
 export const LOGOUT = 'LOGOUT';
+
+export const GET_TYPES = 'GET_TYPES';

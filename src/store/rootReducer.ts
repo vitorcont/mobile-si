@@ -1,3 +1,4 @@
+import { reportReducer } from './Report/reducer';
 import { userReducer } from './User/reducer';
 import { combineReducers } from 'redux';
 
@@ -11,6 +12,7 @@ const reducers = combineReducers({
   loading: loadingReducer,
   auth: authReducer,
   user: userReducer,
+  report: reportReducer,
 });
 
 const rootReducer = (state: any, action: any) => {

@@ -40,7 +40,11 @@ const ReportsList = () => {
               width: '80%',
               alignSelf: 'center',
             }}>
-            <Button animated={false} label="Nova Ocorrência" />
+            <Button
+              animated={false}
+              label="Nova Ocorrência"
+              onPress={() => navigationService.navigate('CreateReport')}
+            />
           </View>
         </View>
       )}

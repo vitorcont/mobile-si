@@ -44,6 +44,7 @@ export interface Pagination {
 }
 
 export interface UserCreation {
+  id?: string;
   name?: string;
   password?: string;
   email?: string;
@@ -51,7 +52,7 @@ export interface UserCreation {
 }
 
 export interface ReportProps {
-  id: string;
+  id?: string;
   userId: string;
   title: string;
   description: string;
@@ -61,4 +62,24 @@ export interface ReportProps {
   audio: string;
   latitude: string;
   longitude: string;
+}
+
+export interface Report {
+  id?: string;
+  userId?: string;
+  title?: string;
+  description?: string;
+  typeId?: string;
+  type?: models.Type;
+  subTypes?: string[];
+  image?: string;
+  audio?: string;
+  latitude?: string;
+  longitude?: string;
+}
+
+export interface Type {
+  id: string;
+  typeName: string;
+  subTypes: string[];
 }
