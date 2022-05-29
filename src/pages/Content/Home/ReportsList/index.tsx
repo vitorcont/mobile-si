@@ -8,7 +8,7 @@ import { useReduxState } from '@mobile/hooks/useReduxState';
 import navigationService from '@mobile/services/navigation';
 import { authenticate, logout } from '@mobile/store/Auth/action';
 import { getReport } from '@mobile/store/Report/action';
-import { getMe } from '@mobile/store/User/action';
+import { getMe, setLocation } from '@mobile/store/User/action';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
@@ -24,6 +24,7 @@ const ReportsList = () => {
 
   useEffect(() => {
     dispatch(getMe());
+    dispatch(setLocation());
   }, []);
 
   useEffect(() => {

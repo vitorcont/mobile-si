@@ -38,12 +38,12 @@ export function CreateReport() {
   });
   const { loading, report, user } = useReduxState();
   const { types } = report;
-  const { me } = user;
+  const { me, location } = user;
   const dispatch = useDispatch();
+
   const [visible, setVisible] = useState(false);
   const [openType, setOpenType] = useState(false);
   const [valueType, setValueType] = useState(null);
-
   const [openSubType, setOpenSubType] = useState(false);
   const [valueSubType, setValueSubType] = useState(null);
   const [itemsSubType, setItemsSubType] = useState([]);
@@ -60,6 +60,8 @@ export function CreateReport() {
             typeId: valueType ?? '',
             subTypes: [valueSubType ?? ''],
             description: form.description ?? '',
+            latitude: (location?.latitude ?? 0).toString(),
+            longitude: (location?.longitude ?? 0).toString(),
           })
         );
       }

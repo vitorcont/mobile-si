@@ -1,4 +1,4 @@
-import { USER_ME } from './../actionsType';
+import { USER_ME, USER_LOCATION } from './../actionsType';
 import StorageService from '@mobile/services/storage';
 import { Dispatch } from 'redux';
 
@@ -10,6 +10,7 @@ import { startLoading, stopLoading } from '../Loading/action';
 import { StorageItems } from '@mobile/enum/storage';
 import Toaster from '@mobile/services/toaster';
 import UserAPI from '@mobile/repositories/user';
+import { getUserLocation } from '@mobile/services/location';
 
 export const createUser = (userData: models.UserCreation) => async (dispatch: Dispatch) => {
   dispatch(startLoading());
@@ -43,4 +44,12 @@ export const getMe = (navigate?: boolean) => async (dispatch: Dispatch) => {
   } finally {
     dispatch(stopLoading());
   }
+};
+
+export const setLocation = () => async (dispatch: Dispatch) => {
+  const userLocation = await getUserLocation();
+  dispatch({
+    type: USER_LOCATION,
+    payload: userLocation,
+  });
 };

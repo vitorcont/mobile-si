@@ -1,4 +1,5 @@
 export as namespace reducers;
+import Location from 'expo-location';
 
 export interface ReportState {
   types: models.Type[];
@@ -14,6 +15,7 @@ export interface AuthState {
 
 export interface UserState {
   me: models.UserCreation | null;
+  location: Location.LocationObjectCoords | null;
 }
 
 export interface ReduxState {

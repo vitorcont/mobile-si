@@ -6,6 +6,7 @@ import { MaterialIcons, Entypo, FontAwesome5 } from '@expo/vector-icons';
 import { tabBarOptions } from './Content.style';
 import { theme } from '@mobile/global/styles/theme';
 import HomeStack from './Home/HomeStack';
+import Map from './Map';
 
 const ContentStack = () => {
   const Tab = createBottomTab();
@@ -41,7 +42,7 @@ const ContentStack = () => {
         />
         <Tab.Screen
           name="Map"
-          component={() => <></>}
+          component={Map}
           options={{
             tabBarIcon: ({ color }) => <Entypo name="map" size={24} color={color} />,
             tabBarLabel: 'Mapa',

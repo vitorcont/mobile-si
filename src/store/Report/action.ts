@@ -23,7 +23,6 @@ export const getTypes = () => async (dispatch: Dispatch) => {
 export const createReport = (data: models.Report) => async (dispatch: Dispatch) => {
   dispatch(startLoading());
   try {
-    console.log(data);
     await ReportAPI.create(data);
     Toaster.success('Sucesso', 'Ocorrência criada com sucesso!');
     navigationService.back();
@@ -39,7 +38,6 @@ export const getReport = () => async (dispatch: Dispatch) => {
   dispatch(startLoading());
   try {
     const payload = await ReportAPI.get();
-    console.log(payload);
     dispatch({
       type: GET_REPORTS,
       payload,

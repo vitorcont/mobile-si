@@ -23,7 +23,6 @@ export async function onTakePhoto({ report, setReport, setVisible }: CameraServi
     });
 
     if (!result.cancelled) {
-      console.log(result.base64!);
       let img = 'data:image/png;base64,' + result.base64!;
       setReport({ ...report, image: img });
     }
@@ -42,7 +41,6 @@ export async function onChooseFromGallery({ report, setReport, setVisible }: Cam
     });
 
     if (!result.cancelled) {
-      console.log(result.base64!);
       let img = 'data:image/png;base64,' + result.base64!;
       setReport({ ...report, image: img });
     }
