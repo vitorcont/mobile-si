@@ -11,6 +11,12 @@ const ReportAPI = {
     const instance = await getInstance();
     await instance.post('/report', data);
   },
+  get: async () => {
+    const instance = await getInstance();
+    const { data } = await instance.get('/report');
+
+    return data;
+  },
 };
 
 export default ReportAPI;

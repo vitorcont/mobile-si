@@ -8,3 +8,4 @@ export const AUTH_LOGGED = 'AUTH_LOGGED';
 export const LOGOUT = 'LOGOUT';
 
 export const GET_TYPES = 'GET_TYPES';
+export const GET_REPORTS = 'GET_REPORTS';

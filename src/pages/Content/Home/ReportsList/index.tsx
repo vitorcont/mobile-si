@@ -1,19 +1,23 @@
 import AdvancedTextInput from '@mobile/components/AdvancedTextInput';
 import Button from '@mobile/components/Button';
+import Card from '@mobile/components/Card';
 import { Header } from '@mobile/components/Header';
 import Loading from '@mobile/components/Loading';
 import { theme } from '@mobile/global/styles/theme';
 import { useReduxState } from '@mobile/hooks/useReduxState';
 import navigationService from '@mobile/services/navigation';
 import { authenticate, logout } from '@mobile/store/Auth/action';
+import { getReport } from '@mobile/store/Report/action';
 import { getMe } from '@mobile/store/User/action';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 import { useDispatch } from 'react-redux';
 
 const ReportsList = () => {
-  const { loading, user } = useReduxState();
+  const { loading, user, report } = useReduxState();
+  const { reportsList } = report;
   const { me } = user;
   const [form, setForm] = useState({ email: '', password: '' });
   const dispatch = useDispatch();
@@ -21,6 +25,12 @@ const ReportsList = () => {
   useEffect(() => {
     dispatch(getMe());
   }, []);
+
+  useEffect(() => {
+    if (me) {
+      dispatch(getReport());
+    }
+  }, [me]);
 
   return (
     <>
@@ -32,6 +42,24 @@ const ReportsList = () => {
             flex: 1,
           }}>
           <Header variant="home" title={me?.name!} />
+          <FlatList
+            data={reportsList}
+            keyExtractor={(item, index) => index.toString()}
+            contentContainerStyle={{
+              alignItems: 'center',
+              width: '100%',
+              paddingTop: '55%',
+              paddingBottom: '30%',
+            }}
+            renderItem={({ item }) => (
+              <Card
+                title={item.title}
+                subType={item.subTypes}
+                type={item.type?.typeName ?? ''}
+                date={new Date(item.createdAt ?? '').toLocaleDateString()}
+              />
+            )}
+          />
           <View
             style={{
               position: 'absolute',

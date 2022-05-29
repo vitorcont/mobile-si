@@ -1,4 +1,4 @@
-import { GET_TYPES } from '../actionsType';
+import { GET_TYPES, GET_REPORTS } from '../actionsType';
 
 export const initialState: reducers.ReportState = {
   reportsList: [],
@@ -11,6 +11,11 @@ export const reportReducer = (state = initialState, action: any) => {
       return {
         ...state,
         types: action.payload,
+      };
+    case GET_REPORTS:
+      return {
+        ...state,
+        reportsList: action.payload,
       };
     default:
       return state;

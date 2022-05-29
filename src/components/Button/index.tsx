@@ -31,6 +31,8 @@ const Button = ({ loading, onPress, label, animated = true }: IButtonProps) => {
         height: 60,
         borderRadius: loading ? 120 : 20,
         justifyContent: 'center',
+        elevation: 5,
+        backgroundColor: theme.colors.primary,
       }}>
       <TouchableOpacity
         onPress={onPress}

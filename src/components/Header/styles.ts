@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
     paddingBottom: '8%',
     borderBottomRightRadius: 90,
     elevation: 10,
+    position: 'absolute',
   },
   headerText: {
     color: '#FFF',
