@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import MapView, { Marker } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
 import { useReduxState } from '@mobile/hooks/useReduxState';
+import { theme } from '@mobile/global/styles/theme';
+import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import { Host } from 'react-native-portalize';
+import WarnIcon from '@mobile/assets/icons/ic_warn.svg';
 
 const Map = () => {
   const { user, report } = useReduxState();
@@ -27,18 +31,44 @@ const Map = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <MapView ref={mapRef} style={{ width: '100%', height: '100%' }}>
-        {markers.map((marker, index) => (
-          <Marker
-            key={index}
-            coordinate={{
-              latitude: parseFloat(marker.latitude),
-              longitude: parseFloat(marker.longitude),
-            }}
-            description={marker.description}
-          />
-        ))}
-      </MapView>
+      <Host>
+        <MapView ref={mapRef} style={{ width: '100%', height: '100%' }}>
+          {markers.map((marker, index) => (
+            <Marker
+              onPress={() => console.log('aaa')}
+              key={index}
+              coordinate={{
+                latitude: parseFloat(marker.latitude),
+                longitude: parseFloat(marker.longitude),
+              }}>
+              <WarnIcon width={40} height={40} />
+            </Marker>
+          ))}
+        </MapView>
+        <View
+          style={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
+          }}>
+          <TouchableOpacity
+            onPress={centerLocation}
+            style={{
+              marginBottom: 30,
+              marginRight: 15,
+              width: 45,
+              height: 45,
+              backgroundColor: theme.colors.primary,
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: 40,
+            }}>
+            <MaterialIcons name="my-location" size={22} color="#FFF" />
+          </TouchableOpacity>
+        </View>
+      </Host>
     </View>
   );
 };
