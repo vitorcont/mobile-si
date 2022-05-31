@@ -19,7 +19,7 @@ export const getInstance = async () => {
   const accessToken = await StorageService.getItem(StorageItems.ACCESS_TOKEN);
 
   const axiosInstance = Axios.create({
-    baseURL: 'http://115b-191-246-17-78.ngrok.io',
+    baseURL: 'https://e70d-2804-18-18c7-9aa8-cd07-4ddf-f10c-2f10.sa.ngrok.io',
     timeout: 10000,
     headers: {
       'content-Type': 'application/json',

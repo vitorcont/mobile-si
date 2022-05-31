@@ -6,7 +6,6 @@ import Loading from '@mobile/components/Loading';
 import { Option } from '@mobile/components/Option';
 import { theme } from '@mobile/global/styles/theme';
 import { useReduxState } from '@mobile/hooks/useReduxState';
-import { ReportProps } from '@mobile/models/module';
 import {
   onPlayAudio,
   onRemoveAudio,

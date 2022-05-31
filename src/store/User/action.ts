@@ -1,3 +1,4 @@
+import { authenticate } from './../Auth/action';
 import { USER_ME, USER_LOCATION } from './../actionsType';
 import StorageService from '@mobile/services/storage';
 import { Dispatch } from 'redux';
@@ -17,6 +18,7 @@ export const createUser = (userData: models.UserCreation) => async (dispatch: Di
   try {
     await UserAPI.create(userData);
     Toaster.success('Sucesso', 'Usuário cadastrado com sucesso.');
+    dispatch(authenticate({ email: userData.email, password: userData.password }));
   } catch (err) {
     Toaster.error('Erro', 'Dados de Cadastro Inválidos, verifique seus dados e tente novamente.');
   } finally {

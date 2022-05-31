@@ -44,7 +44,7 @@ const ReportsList = () => {
           }}>
           <Header variant="home" title={me?.name!} />
           <FlatList
-            data={reportsList}
+            data={reportsList.filter((item) => item.userId === me?.id)}
             keyExtractor={(item, index) => index.toString()}
             contentContainerStyle={{
               alignItems: 'center',
