@@ -26,6 +26,26 @@ export const createUser = (userData: models.UserCreation) => async (dispatch: Di
   }
 };
 
+export const updateUser =
+  (userData: models.UserCreation, id: string) => async (dispatch: Dispatch) => {
+    dispatch(startLoading());
+    if (userData.password === '') {
+      delete userData.password;
+    }
+    try {
+      await UserAPI.update(userData, id);
+      Toaster.success('Sucesso', 'Usuário atualizado com sucesso.');
+      dispatch(getMe());
+    } catch (err) {
+      Toaster.error(
+        'Erro',
+        'Não foi possível atualizar esse usuário no momento, verifique seus dados e tente novamente.'
+      );
+    } finally {
+      dispatch(stopLoading());
+    }
+  };
+
 export const getMe = (navigate?: boolean) => async (dispatch: Dispatch) => {
   dispatch(startLoading());
   try {

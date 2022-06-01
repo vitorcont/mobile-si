@@ -34,7 +34,7 @@ const AdvancedTextInput = ({
     <View
       style={[
         {
-          backgroundColor: '#eeeeee',
+          backgroundColor: disabled ? '#dfdfdf' : '#eeeeee',
           borderRadius: 16,
           borderColor: '#dddddd',
           borderWidth: 1.5,

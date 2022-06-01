@@ -7,6 +7,7 @@ import { tabBarOptions } from './Content.style';
 import { theme } from '@mobile/global/styles/theme';
 import HomeStack from './Home/HomeStack';
 import Map from './Map';
+import Profile from './Profile';
 
 const ContentStack = () => {
   const Tab = createBottomTab();
@@ -50,7 +51,7 @@ const ContentStack = () => {
         />
         <Tab.Screen
           name="Profile"
-          component={() => <></>}
+          component={Profile}
           options={{
             tabBarIcon: ({ color }) => <FontAwesome5 name="user-circle" size={24} color={color} />,
             tabBarLabel: 'Perfil',

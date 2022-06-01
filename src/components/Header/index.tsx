@@ -6,7 +6,7 @@ import { styles } from './styles';
 
 interface HeaderProps {
   title: string;
-  variant: 'default' | 'home' | 'report';
+  variant: 'default' | 'home' | 'report' | 'profile';
 }
 
 export function Header({ title, variant = 'default' }: HeaderProps) {
@@ -24,6 +24,11 @@ export function Header({ title, variant = 'default' }: HeaderProps) {
             Seja bem vindo so seu portal de ocorrências, aqui você poderá relatar e vizualizar os
             problemas de sua região.
           </Text>
+        </View>
+      )}
+      {variant === 'profile' && (
+        <View style={styles.homeContainer}>
+          <Text style={styles.headerText}>{title}</Text>
         </View>
       )}
       {variant === 'report' && (
