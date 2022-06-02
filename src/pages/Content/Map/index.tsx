@@ -9,6 +9,8 @@ import WarnIcon from '@mobile/assets/icons/ic_warn.svg';
 import MeIcon from '@mobile/assets/icons/ic_me.svg';
 import { styles } from './styles';
 import Button from '@mobile/components/Button';
+import { actualDate, toLocaleDate } from '@mobile/services/date';
+import { DateTime } from 'luxon';
 
 const Map = () => {
   const { user, report } = useReduxState();
@@ -58,6 +60,24 @@ const Map = () => {
                     fontFamily: theme.fonts.Bold,
                   }}>
                   Detalhes da Ocorrência
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    color: 'black',
+                    fontFamily: theme.fonts.Regular,
+                    marginTop: 10,
+                  }}>
+                  Data reportada:
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 22,
+                    color: 'black',
+                    fontFamily: theme.fonts.Bold,
+                    marginTop: -6,
+                  }}>
+                  {actualDate(selected.createdAt ?? '')}
                 </Text>
                 <Text
                   style={{
@@ -153,3 +173,6 @@ const Map = () => {
 };
 
 export default Map;
+function DateTimeFormatOptions(createdAt: string | undefined, DateTimeFormatOptions: any) {
+  throw new Error('Function not implemented.');
+}

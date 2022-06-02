@@ -5,6 +5,7 @@ import { Header } from '@mobile/components/Header';
 import Loading from '@mobile/components/Loading';
 import { theme } from '@mobile/global/styles/theme';
 import { useReduxState } from '@mobile/hooks/useReduxState';
+import { actualDate } from '@mobile/services/date';
 import navigationService from '@mobile/services/navigation';
 import { authenticate, logout } from '@mobile/store/Auth/action';
 import { getReport } from '@mobile/store/Report/action';
@@ -57,7 +58,7 @@ const ReportsList = () => {
                 title={item.title}
                 subType={item.subTypes}
                 type={item.type?.typeName ?? ''}
-                date={new Date(item.createdAt ?? '').toLocaleDateString()}
+                date={actualDate(item.createdAt ?? '')}
               />
             )}
           />

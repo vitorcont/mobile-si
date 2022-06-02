@@ -20,6 +20,7 @@ const Profile = () => {
   const dispatch = useDispatch();
   const {
     user: { me: userData },
+    loading,
   } = useReduxState();
   const [edit, setEdit] = useState(false);
   const [form, setForm] = useState({
@@ -54,8 +55,16 @@ const Profile = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Header title="Perfil" variant="profile" />
-      <View style={{ paddingTop: '50%', paddingHorizontal: '10%', alignItems: 'center' }}>
+      <Header title="Dados de Perfil" variant="profile" />
+      <View style={{ paddingTop: '45%', paddingHorizontal: '10%', alignItems: 'center' }}>
+        <View style={{ paddingBottom: '10%' }}>
+          <Text style={{ textAlign: 'center', fontFamily: theme.fonts.Bold, fontSize: 20 }}>
+            Bem vindo ao seu perfil!
+          </Text>
+          <Text style={{ textAlign: 'center', fontFamily: theme.fonts.Regular, fontSize: 14 }}>
+            Aqui você poderá alterar seus dados, como seu nome e seu email.
+          </Text>
+        </View>
         <AdvancedTextInput
           placeholder="Email"
           disabled
@@ -80,7 +89,7 @@ const Profile = () => {
           />
         </View>
         <View style={{ marginTop: '20%', width: '100%', alignItems: 'center' }}>
-          <Button label={edit ? 'Salvar' : 'Editar'} onPress={onSubmit} />
+          <Button label={edit ? 'Salvar' : 'Editar'} onPress={onSubmit} loading={loading > 0} />
           <View style={{ width: '50%', marginTop: '5%' }}>
             <Button label="Sair" animated={false} onPress={() => dispatch(logout())} />
           </View>
